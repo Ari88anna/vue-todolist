@@ -33,36 +33,36 @@
                 <!-- input section -->
                 <section class="input-section">
 
-                    <input v-model="userValue" class="input-box" type="text" placeholder="Nuovo todo">
+                    <input class="input-box" type="text" placeholder="Nuovo todo" v-model="userValue" @keyup.enter="addNewLine">
 
-                    <button class="add-btn" @click="addNewValue">Aggiungi</button>
+                    <button class="add-btn" @click="addNewLine">Aggiungi</button>
 
                 </section>
                 <!-- end input section -->
 
 
-                <!-- list -->
+                <!-- list section -->
                 <section class="list">
 
                     <div class="list-container">
 
                         <ul class="todo-list">
 
-                            <li v-for="line in list">
+                            <li v-for="(line, index) in list">
                                 {{line}}
-                                <span class="delete">
+
+                                <span class="delete" @click="deleteLine(index)">
                                     <i class="fas fa-times"></i>
                                 </span>
+
                             </li>
 
-                        </ul>
-
-                    
+                        </ul>                    
 
                     </div>
 
                 </section>
-                <!-- end list -->
+                <!-- end list section -->
 
             </main>
             <!-- end MAIN -->
